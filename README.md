@@ -28,7 +28,7 @@ Plots, CSV data, and a summary are saved to `cooling_results`.
 With optional settings that can be changed in the terminal:
 
 ```bash
-python cooling_project.py --seed 42 --trials 200 --output cooling_results --no-show
+python cooling_simulation.py --seed 42 --trials 200 --output cooling_results --no-show
 ```
 
 `--no-show` saves the plots without opening windows. Use `--help` to view all options.
