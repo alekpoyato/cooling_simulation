@@ -60,6 +60,16 @@ def find_a(times, measurements, T_initial, T_room, candidate_rates):
     scores = np.asarray(scores)
     return float(candidates[np.argmin(scores)]), scores
 
+def check_basics():
+    """Check independent physical limits and numerical accuracy."""
+    times = np.linspace(0, 30, 61)
+    np.testing.assert_allclose(cooling_simulation(80, 20, 0, times), 80)
+    np.testing.assert_allclose(cooling_simulation(20, 20, 0.1, times), 20)
+    for initial, room in [(80, 20), (20, 80)]:
+        np.testing.assert_allclose(
+            cooling_simulation(initial, room, 0.1, times),
+            exact_temperature(initial, room, 0.1, times), atol=1e-6, rtol=0)
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__,
@@ -81,6 +91,7 @@ def main():
     import matplotlib.pyplot as plt
 
     args.output.mkdir(parents=True, exist_ok=True)
+    check_basics()
     initial = float(config['simulation']['initial'])
     room = float(config['simulation']['room'])
     true_rate = float(config['simulation']['true_rate'])
