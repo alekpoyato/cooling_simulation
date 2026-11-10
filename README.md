@@ -20,7 +20,7 @@ The code uses NumPy, SciPy, and Matplotlib.
 Run the simulation:
 
 ```bash
-python cooling_project.py
+python cooling_simulation.py
 ```
 
 Plots, CSV data, and a summary are saved to `cooling_results`.
