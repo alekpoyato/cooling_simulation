@@ -1,0 +1,7 @@
+[simulation]
+initial = 100.0
+room = 30.0
+true_rate = 0.1
+duration = 30.0
+sigma = 0.5
+candidates = [0.02, 0.20, 2000]
